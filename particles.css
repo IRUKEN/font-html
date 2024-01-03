@@ -1,0 +1,37 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Color de fondo para contrastar */
+}
+
+.contenedor {
+    position: relative;
+    width: 300px; /* Ancho del contenedor */
+    height: 300px; /* Altura del contenedor */
+    border-radius: 50%; /* Hace el div redondo */
+    background-color: #fff; /* Color de fondo del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Para evitar que el desenfoque se extienda fuera del div */
+}
+
+.contenedor::before {
+    content: "";
+    position: absolute;
+    top: -15px; left: -15px;
+    right: -15px; bottom: -15px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, transparent 20%, #ff8c00 50%, #8a2be2 80%, transparent 100%);
+    filter: blur(10px); /* Intensidad del desenfoque */
+    z-index: -1;
+}
+
+/* Asegura que el contenido dentro del contenedor esté sobre el efecto de desenfoque */
+.contenedor > * {
+    position: relative;
+    z-index: 1;
+}
